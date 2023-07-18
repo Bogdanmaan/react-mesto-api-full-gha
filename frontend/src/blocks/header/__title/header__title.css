@@ -1,0 +1,32 @@
+.header__title {
+    margin: 0;
+    font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 918px) {
+    .header__title {
+        padding-right: 19px;
+        padding-top: 28px;
+    } 
+ }
+
+@media screen and (max-width: 880px) {
+    .header__title {
+        padding-right: 27px;
+        padding-top: 28px;
+    } 
+ }
+
+@media screen and (max-width: 320px) {
+    .header__title {
+        font-size: 14px;
+        line-height: 17px;
+    } 
+ }

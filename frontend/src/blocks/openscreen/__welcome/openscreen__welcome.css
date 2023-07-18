@@ -1,0 +1,20 @@
+.openscreen__welcome {
+    margin: 0 auto;
+    padding-bottom: 20px;
+    font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: white;
+    text-align: center;
+}
+
+@media screen and (max-width: 426px) {
+    .openscreen__welcome {
+        width: 260px;
+        padding-bottom: 10px;
+        font-size: 20px;
+        line-height: 24px;
+    }
+}

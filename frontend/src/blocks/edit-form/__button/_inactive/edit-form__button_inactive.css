@@ -1,0 +1,11 @@
+.edit-form__button_inactive {
+    border: 1px solid #000000;
+    background: white;
+    color: rgba(0, 0, 0, 1);
+    opacity: 0.2;
+    cursor: default;
+}
+
+.edit-form__button_inactive:hover {
+    opacity: 0.2;
+}

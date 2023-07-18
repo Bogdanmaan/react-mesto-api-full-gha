@@ -1,0 +1,24 @@
+.openscreen__link {
+    width: 358px;
+    height: 50px;
+    border-radius: 2px;
+    border: 0;
+    background: white;
+    color: black;
+    font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 426px) {
+    .openscreen__link {
+        width: 260px;
+        height: 46px;
+        font-size: 16px;
+        line-height: 19px;
+    }
+}

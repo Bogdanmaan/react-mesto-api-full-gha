@@ -1,0 +1,9 @@
+.openscreen__login-link {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.openscreen__login-link:hover {
+    opacity: .6;
+}

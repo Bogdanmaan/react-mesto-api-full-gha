@@ -1,0 +1,16 @@
+.openscreen__button-container {
+    margin: 216px auto 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.openscreen__button-container:hover {
+    opacity: .8;
+}
+
+@media screen  and (max-width: 426px) {
+    .openscreen__button-container {
+        margin: 173px auto 0;
+    }
+}

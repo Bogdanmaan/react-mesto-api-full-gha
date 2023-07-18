@@ -1,0 +1,19 @@
+.edit-form__field {
+    margin-left: 36px;
+    padding: 0 0 9px 0;
+    width: 358px;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+@media screen and (max-width: 580px) {
+    .edit-form__field {
+        margin-left: 22px;
+        width: 238px;
+    }
+}
