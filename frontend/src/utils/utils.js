@@ -8,9 +8,9 @@ export const config = {
 }
 
 export const apiConfig = {
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-60',
+    baseUrl: '"http://localhost:4000"',
     headers: {
-      authorization: 'f078c62b-1864-449f-b8d5-c0f5ce819d9e',
+      authorization: '0e72c463-84b1-4b3c-b41a-79efe4f96a53',
       'Content-Type': 'application/json'
     }
 }
