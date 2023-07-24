@@ -19,6 +19,7 @@ const cardRouter = require('./routes/cards');
 const auth = require('./middlewares/auth');
 
 const NotFoundError = require('./errors/not-found-error');
+
 const errorHandler = require('./middlewares/error-handler');
 
 // eslint-disable-next-line no-useless-escape
@@ -43,9 +44,9 @@ app.post(
 
   celebrate({
     body: Joi.object().keys({
-      name: Joi.string().required().min(2).max(30),
+      name: Joi.string().min(2).max(30),
 
-      about: Joi.string().required().min(2).max(30),
+      about: Joi.string().min(2).max(30),
 
       avatar: Joi.string().pattern(urlRegExp),
 
@@ -78,15 +79,13 @@ app.use(userRouter);
 
 app.use(cardRouter);
 
+app.use(errorHandler);
+
+app.use('*', (req, res, next) => next(new NotFoundError({ message: 'Несуществующий адрес' })));
+
 app.use(errorLogger);
 
 app.use(errors());
-
-app.use(errorHandler);
-
-app.use('*', (req, res, next) => {
-  next(new NotFoundError({ message: 'Несуществующий адрес' }));
-});
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

@@ -1,8 +1,9 @@
 import { apiConfig } from "./utils";
+import { BASE_URL } from "./auth";
 
 class Api {
     constructor(apiConfig) {
-        this._url = apiConfig.baseUrl;
+        this._url = BASE_URL;
         this._headers = apiConfig.headers;
     }
 

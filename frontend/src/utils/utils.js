@@ -8,9 +8,10 @@ export const config = {
 }
 
 export const apiConfig = {
-    baseUrl: '"http://localhost:4000"',
+    baseUrl: 'http://localhost:4000',
     headers: {
-      authorization: '0e72c463-84b1-4b3c-b41a-79efe4f96a53',
+      authorization: `Bearer ${localStorage.getItem('token')}`,
+      // authorization: '0e72c463-84b1-4b3c-b41a-79efe4f96a53',
       'Content-Type': 'application/json'
     }
 }
