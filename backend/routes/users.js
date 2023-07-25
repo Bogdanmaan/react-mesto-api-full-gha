@@ -25,8 +25,27 @@ router.get(
   getUserById,
 );
 
-router.patch('/users/me', updateUser);
+router.patch(
+  '/users/me',
+  celebrate({
+    body: Joi.object().keys({
+      _id: Joi.string().length(24).hex(),
+      name: Joi.string().required(),
+      about: Joi.string().required(),
+    }),
+  }),
+  updateUser,
+);
 
-router.patch('/users/me/avatar', updateAvatar);
+router.patch(
+  '/users/me/avatar',
+  celebrate({
+    body: Joi.object().keys({
+      _id: Joi.string().length(24).hex(),
+      avatar: Joi.string().required(),
+    }),
+  }),
+  updateAvatar,
+);
 
 module.exports = router;

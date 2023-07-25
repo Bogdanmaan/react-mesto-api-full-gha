@@ -79,13 +79,13 @@ app.use(userRouter);
 
 app.use(cardRouter);
 
-app.use(errorHandler);
-
-app.use('*', (req, res, next) => next(new NotFoundError({ message: 'Несуществующий адрес' })));
+app.use('*', (req, res, next) => next(new NotFoundError('Несуществующий адрес')));
 
 app.use(errorLogger);
 
 app.use(errors());
+
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

@@ -18,15 +18,13 @@ const getUserById = (req, res, next) => {
   return User.findById(userId)
     .then((user) => {
       if (!user) {
-        throw new NotFoundError({
-          message: 'Запрашиваемый пользователь не найден',
-        });
+        throw new NotFoundError('Запрашиваемый пользователь не найден');
       }
       return res.status(NO_ERR).send(user);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
-        return next(new BadRequestError({ message: 'Некорректные данные' }));
+        return next(new BadRequestError('Некорректные данные'));
       }
       return next(err);
     });
@@ -38,7 +36,7 @@ const createUser = (req, res, next) => {
   return User.findOne({ email })
     .then((newUser) => {
       if (newUser) {
-        throw new ConflictError({ message: 'Пользователь уже существует' });
+        throw new ConflictError('Пользователь уже существует');
       }
       bcrypt
         .hash(password, 10)
@@ -47,7 +45,7 @@ const createUser = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        return next(new BadRequestError({ message: 'Некорректные данные' }));
+        return next(new BadRequestError('Некорректные данные'));
       }
       return next(err);
     });
@@ -62,15 +60,13 @@ const updateUser = (req, res, next) => {
   )
     .then((user) => {
       if (!user) {
-        throw new NotFoundError({
-          message: 'Запрашиваемый пользователь не найден',
-        });
+        throw new NotFoundError('Запрашиваемый пользователь не найден');
       }
       return res.status(NO_ERR).send(user);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        return next(new BadRequestError({ message: 'Некорректные данные' }));
+        return next(new BadRequestError('Некорректные данные'));
       }
       return next(err);
     });
@@ -85,16 +81,14 @@ const updateAvatar = (req, res, next) => {
   )
     .then((user) => {
       if (!user) {
-        throw new NotFoundError({
-          message: 'Запрашиваемый пользователь не найден',
-        });
+        throw new NotFoundError('Запрашиваемый пользователь не найден');
       }
       return res.status(NO_ERR).send(user);
     })
     .then((user) => res.send({ data: user }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        return next(new BadRequestError({ message: 'Некорректные данные' }));
+        return next(new BadRequestError('Некорректные данные'));
       }
       return next(err);
     });
@@ -107,15 +101,11 @@ const login = (req, res, next) => {
     .select('+password')
     .then((currentUser) => {
       if (!currentUser) {
-        throw new AuthError({ message: 'Пользователь не существует' });
+        throw new AuthError('Пользователь не существует');
       }
       bcrypt.compare(password, currentUser.password).then((matched) => {
         if (!matched) {
-          return next(
-            new AuthError({
-              message: 'Не правильный почта или пароль',
-            }),
-          );
+          return next(new AuthError('Не правильный почта или пароль'));
         }
         const token = jwt.sign({ _id: currentUser._id }, 'secretKey', {
           expiresIn: '7d',
@@ -125,7 +115,7 @@ const login = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        return next(new BadRequestError({ message: 'Некорректные данные' }));
+        return next(new BadRequestError('Некорректные данные'));
       }
       return next(err);
     });
